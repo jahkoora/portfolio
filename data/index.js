@@ -49,7 +49,7 @@ export const projects = [
     title: "Dental Excellence",
     description: "NextJS website, Sanity CMS and Shopify GraphQL API",
     image: "/img/dentalexcellence.jpg",
-    url: "https://dentalexellence.net.au",
+    url: "https://dentalexcellence.net.au/",
   },
   {
     title: "Gommes Shoes",
