@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("http://fonts.cdnfonts.com/css/clash-display");
+@import url("https://fonts.cdnfonts.com/css/clash-display");
 @layer base {
   body {
     @apply bg-mainBg;
