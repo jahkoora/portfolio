@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("http://fonts.cdnfonts.com/css/clash-display");
 @layer base {
   body {
     @apply bg-mainBg;
@@ -54,13 +54,14 @@ menu {
 
 .name-highlight {
   background: linear-gradient(to bottom, var(--main-cursor-color), var(--secondary-cursor-color));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .border-gradient {
   border: 10px solid;
-  border-image-slice: 1;
+  border-image-slice: 1 !important;
   border-width: 2px;
   border-image-source: linear-gradient(to left, var(--main-cursor-color), var(--secondary-cursor-color));
 }
