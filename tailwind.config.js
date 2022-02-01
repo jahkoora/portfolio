@@ -24,5 +24,6 @@ module.exports = {
       },
     },
   },
-  plugins: ["postcss-import", "tailwindcss", "autoprefixer"],
+  // eslint-disable-next-line global-require
+  plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
 }
