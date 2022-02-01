@@ -16,7 +16,7 @@ export const Projects = () => {
         return (
           <>
             <motion.div
-              key={title + i}
+              key={`project-${i}`}
               style={divStyle}
               className={classNames(
                 "relative bg-gradientBg rounded-2xl outline outline-1 outline-[#a752ee] outline-offset-8",
