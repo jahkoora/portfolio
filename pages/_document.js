@@ -6,7 +6,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <link href="http://fonts.cdnfonts.com/css/clash-display" rel="stylesheet" />
+          <link href="https://fonts.cdnfonts.com/css/clash-display" rel="stylesheet" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
