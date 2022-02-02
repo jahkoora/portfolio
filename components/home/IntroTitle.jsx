@@ -3,7 +3,7 @@ import React from "react"
 
 export const IntroTitle = () => {
   return (
-    <div className="h-screen px-4">
+    <div className="lg:h-screen px-4">
       <div className=" flex flex-col justify-center content-center h-full">
         <h2 className="text-white pb-2 text-3xl">
           I{"'"}m{" "}

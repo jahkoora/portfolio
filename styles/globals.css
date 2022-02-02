@@ -23,14 +23,18 @@
   --secondary-cursor-color: #2ed4fa;
 }
 
-body {
-  cursor: none;
+@media (min-width: 1024px) {
+  body {
+    cursor: none;
+  }
+  section {
+    height: var(--section-height);
+  }
 }
 
-section {
+section.first {
   height: var(--section-height);
 }
-
 main > section::before {
   content: "";
   position: absolute;
@@ -242,6 +246,16 @@ button.border-gradient:hover span {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .skills-container {
+    width: 125px;
+    height: 150px;
+  }
+  .skills-container div {
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(165px);
+  }
 }
 
 @keyframes rotate3d {

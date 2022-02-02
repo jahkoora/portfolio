@@ -8,20 +8,29 @@ import { AboutMe } from "../data/index.js"
 import { Skills } from "../containers/Skills"
 import { motion } from "framer-motion"
 import { Projects } from "../containers/Projects"
+import Form from "../components/Contact/form"
 
-export default function Home() {
+export default function Home({ isMobile }) {
   useEffect(() => {
     let scroll
     import("locomotive-scroll").then((locomotiveModule) => {
       scroll = new locomotiveModule.default({
         el: document.querySelector("[data-scroll-container]"),
         smooth: true,
-        smoothMobile: false,
         resetNativeScroll: true,
         direction: "horizontal",
+        smartphone: {
+          smooth: true,
+          direction: "vertical",
+          gestureDirection: "vertical",
+        },
+        tablet: {
+          smooth: true,
+          direction: "vertical",
+          gestureDirection: "vertical",
+        },
       })
     })
-    // `useEffect`'s cleanup phase
     return () => scroll.destroy()
   })
 
@@ -32,31 +41,45 @@ export default function Home() {
         <meta name="description" content="The portfolio of Jean-Marc Aliphon" />
       </Head>
 
-      <div className="flex flex-row" id="main-container">
-        <main className="flex flex-row bg-mainBg">
-          <section className="w-screen first grid grid-cols-2 justify-items-center items-center relative">
-            <ScrollCTA position={"top"} />
+      <div className="flex flex-row " id="main-container">
+        <main className="flex lg:flex-row flex-col bg-mainBg">
+          <section className="w-screen first grid lg:grid-cols-2 justify-items-center items-center relative">
+            <ScrollCTA position={1} />
             <IntroTitle />
             <Headshot />
-            <ScrollCTA position={"bottom"} />
+            <ScrollCTA position={2} isMobile={isMobile} />
           </section>
-          <section className="w-screen grid grid-cols-2 grid-rows-2 justify-items-center items-center">
+          <section className="w-screen px-4 pt-10 lg:px-0 lg:pt-0 lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:justify-items-center lg:items-center">
             <Title title="About me" shadowTitle="About" />
-            <div className="">
-              <p className="text-white block max-w-lg">{AboutMe}</p>
+            <div className=" lg:row-start-1 lg:row-end-2 lg:col-start-2 lg:block flex justify-center lg:mt-0 mt-[5rem]">
+              <p className="text-white block max-w-lg lg:text-left text-center">{AboutMe}</p>
             </div>
-            <motion.div className="row-start-2 row-end-3 col-start-1 col-end-3">
+            <motion.div className="lg:row-start-2 lg:row-end-3 lg:block lg:col-start-1 lg:col-end-3 mt-[5rem] flex justify-center">
               <Skills />
             </motion.div>
           </section>
-          <section className="w-screen grid grid-cols-5 grid-rows-2 justify-items-center items-center">
+          <section className="w-screen px-4 lg:grid lg:grid-cols-5 lg:grid-rows-2 lgg:justify-items-center lg:items-center lg:px-0 lg-pt-0 lg:mt-0 mt-[7rem]">
             <Title title="Projects" shadowTitle="Work" />
-            <div className="grid grid-cols-5 row-start-2 row-end-3 col-start-1 col-end-6 h-[300px] gap-x-10">
+            <div className="my-[5rem] lg:mt-0 lg:px-0 px-4 grid grid-cols-2 gap-[3rem] lg:grid-cols-5 lg:row-start-2 lg:row-end-3 lg:col-start-1 lg:col-end-6 lg:h-[300px] gap-x-10">
               <Projects />
             </div>
+          </section>
+          <section className="w-screen px-4 pt-10 lg:px-0 lg:pt-0 lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:justify-items-center lg:items-center mb-[8rem]">
+            <Title title="Connect with me" shadowTitle="Contact" />
+            <Form />
           </section>
         </main>
       </div>
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+  const UA = context.req.headers["user-agent"]
+  const mobile = Boolean(UA.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i))
+  return {
+    props: {
+      isMobile: mobile ? true : false,
+    },
+  }
 }

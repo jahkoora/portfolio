@@ -1,6 +1,10 @@
 import React, { useRef, useEffect } from "react"
+import { useMediaQuery } from "react-responsive"
 
 const CustomCursor = () => {
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 1024px)",
+  })
   const mainCursor = useRef(null)
   const secondaryCursor = useRef(null)
   const positionRef = useRef({
@@ -57,9 +61,8 @@ const CustomCursor = () => {
     followMouse()
   }, [])
 
-  useEffect(() => {}, [])
   return (
-    <div>
+    <div className="hidden lg:block">
       <div className="main-cursor" ref={mainCursor}>
         <div className="main-cursor-background"></div>
       </div>

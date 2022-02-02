@@ -11,8 +11,9 @@ export const Skills = () => {
           <motion.div
             className="flex flex-col p-12 justify-center items-center shadow-xl "
             style={divStyle}
-            key={skill + index}
+            key={`skill-${index}`}
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={skill.img} alt={skill.title} />
           </motion.div>
         )
