@@ -21,6 +21,7 @@ export default function Home({ isMobile }) {
 
       <div data-scroll-container className="flex flex-row relative" id="main-container">
         <main id="stick" className="flex lg:flex-row flex-col bg-mainBg">
+          <Menu isMobile={isMobile} />
           <section
             data-scroll-section-id="section-1"
             id="home"
@@ -61,7 +62,6 @@ export default function Home({ isMobile }) {
             <Title title="Connect with me" shadowTitle="Contact" />
             <Form />
           </section>
-          <Menu />
         </main>
       </div>
     </>

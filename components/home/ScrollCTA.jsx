@@ -6,7 +6,10 @@ import { BsArrowRight } from "react-icons/bs"
 export const ScrollCTA = ({ position }) => {
   return (
     <>
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
         className={classNames("hidden lg:block absolute right-6 text-white", {
           "top-0": position === 1,
           "bottom-0": position === 2,
@@ -19,8 +22,11 @@ export const ScrollCTA = ({ position }) => {
         >
           scroll <BsArrowRight className="inline" />
         </motion.div>
-      </div>
-      <div
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
         className={classNames("lg:hidden absolute bottom-6 text-white rotate-90", {
           "left-0": position === 1,
           "right-0": position === 2,
@@ -33,7 +39,7 @@ export const ScrollCTA = ({ position }) => {
         >
           scroll <BsArrowRight className="inline" />
         </motion.div>
-      </div>
+      </motion.div>
     </>
   )
 }

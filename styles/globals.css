@@ -33,11 +33,31 @@ html {
   }
   section {
     height: var(--section-height);
+    overflow-y: hidden;
+  }
+  menu {
+    bottom: 0;
+    position: absolute;
   }
 }
 
+section {
+  overflow-x: hidden;
+}
 section.first {
   height: var(--section-height);
+}
+@media (max-width: 1024px) {
+  section:nth-of-type(2) {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+
+  section:nth-of-type(3) {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
 }
 main > section::before {
   content: "";
@@ -49,15 +69,36 @@ main > section::before {
   background: radial-gradient(circle, var(--main-cursor-color) 0%, var(--secondary-cursor-color) 100%);
   border-radius: 100%;
   filter: blur(100px);
+  scale: 1;
+  animation: pulse 3s;
+}
+
+@keyframes pulse {
+  0% {
+    scale: 0;
+  }
+  25% {
+    scale: 1.5;
+  }
+  50% {
+    scale: 1;
+  }
+  75% {
+    scale: 1.5;
+  }
+  100% {
+    scale: 1;
+  }
 }
 
 menu {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
   background-color: #1c1c22;
   color: white;
   width: 100vw;
   height: 4rem;
+  z-index: 10;
+  bottom: 0;
 }
 
 .name-highlight {

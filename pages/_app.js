@@ -14,11 +14,11 @@ function MyApp({ Component, pageProps }) {
         direction: "horizontal",
         smoothMobile: 1,
         smartphone: {
-          smooth: true,
+          smooth: false,
           direction: "vertical",
         },
         tablet: {
-          smooth: true,
+          smooth: false,
           direction: "vertical",
         },
       })

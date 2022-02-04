@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { MenuItem } from "./MenuItem"
 
-export const Menu = () => {
+export const Menu = ({ isMobile }) => {
   return (
     <menu id="menu" data-scroll data-scroll-sticky data-scroll-target="#stick" className="flex justify-center">
       <div className="flex flex-row divide-x items-center">
