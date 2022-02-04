@@ -8,7 +8,7 @@ import { AboutMe } from "../data/index.js"
 import { Skills } from "../containers/Skills"
 import { motion } from "framer-motion"
 import { Projects } from "../containers/Projects"
-import Form from "../components/Contact/form"
+import Form from "../components/Contact/Form"
 import { Menu } from "../containers/Menu/Menu"
 
 export default function Home({ isMobile }) {
