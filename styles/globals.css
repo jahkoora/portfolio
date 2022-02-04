@@ -70,7 +70,7 @@ main > section::before {
   border-radius: 100%;
   filter: blur(100px);
   scale: 1;
-  animation: pulse 3s;
+  animation: pulse 3s forwards;
 }
 
 @keyframes pulse {
