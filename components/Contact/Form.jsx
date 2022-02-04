@@ -35,8 +35,8 @@ const Form = () => {
   }
 
   return (
-    <div>
-      <form className="mt-[4rem] grid gap-x-4" onSubmit={handleSubmit(onSubmit)}>
+    <div className="row-start-2 col-start-1 col-end-3 lg:w-[50%]">
+      <form className="lg:mt-0 mt-[4rem] grid " onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("name", {
             required: true,
@@ -70,7 +70,7 @@ const Form = () => {
             <input
               type="submit"
               value="SUBMIT"
-              className="relative pointer px-5 py-1 text-white uppercase tracking-widest border-gradient bg-transparent w-max"
+              className="relative cursor-pointer px-5 py-1 text-white uppercase tracking-widest border-gradient bg-transparent w-max"
             />
             {submitted && (
               <p className="text-white">Thank you for getting in touch! I will be in contact with you shortly</p>

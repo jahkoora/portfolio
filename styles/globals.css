@@ -23,6 +23,10 @@
   --secondary-cursor-color: #2ed4fa;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @media (min-width: 1024px) {
   body {
     cursor: none;
@@ -48,7 +52,7 @@ main > section::before {
 }
 
 menu {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   background-color: #1c1c22;
   color: white;
